@@ -237,4 +237,19 @@ $(document).ready(function () {
     $keystore.removeClass("active");
     $private.addClass("active");
   });
+
+    // Search
+  $(".search-input").on("input", function () {
+    const searchValue = $(this).val().toLowerCase(); // Get the search value and convert to lowercase
+
+    $(".lpd-wallet-item").each(function () {
+      const walletName = $(this).find(".head-4").text().toLowerCase(); // Get the inner HTML of .head-4 and convert to lowercase
+
+      if (walletName.includes(searchValue)) {
+        $(this).show(); // Show the wallet item if it matches the search
+      } else {
+        $(this).hide(); // Hide the wallet item if it doesn't match
+      }
+    });
+  });
 });
